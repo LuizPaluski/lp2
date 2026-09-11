@@ -4,16 +4,19 @@
         <div class="topo">
             <div>
                 <h2 id="popup-titulo">Garantir minha vaga</h2>
-                <p>Condição: <strong class="js-condicao"></strong></p>
+                <p>NeuroVet Summit, 20, 21 e 22 de novembro de 2026</p>
             </div>
             <button type="button" class="fechar js-fechar" aria-label="Fechar">&times;</button>
         </div>
 
         <div class="corpo">
-            <div class="resumo">
-                <div><strong>NeuroVet Summit</strong>, 20, 21 e 22 de novembro de 2026</div>
-                <div><strong>Investimento (<?= $lote ?>º lote):</strong> <span class="js-valor"></span></div>
-            </div>
+            <?php if (PEDE_CUPOM): ?>
+                <div class="campo">
+                    <label class="rotulo-campo" for="cupom">Cupom de aluno ou ex-aluno UFAPE (opcional)</label>
+                    <input class="entrada" type="text" id="cupom" maxlength="40" placeholder="Digite o cupom" autocomplete="off">
+                    <p class="aviso js-aviso-cupom"></p>
+                </div>
+            <?php endif; ?>
 
             <div class="campo">
                 <label class="rotulo-campo" for="nome">Nome completo</label>
@@ -26,7 +29,10 @@
             </div>
 
             <div class="rodape-popup">
-                <button type="button" class="bt-texto js-fechar">Cancelar</button>
+                <div class="total">
+                    <span class="rotulo-total">Investimento (<?= $lote ?>º lote)</span>
+                    <div class="numero js-total"></div>
+                </div>
                 <button type="button" class="bt bt-azul js-enviar" disabled></button>
             </div>
         </div>
@@ -35,12 +41,13 @@
 
 <script>
 window.NEUROVET = <?= json_encode([
-    'evento'       => EVENTO,
-    'lote'         => $lote,
-    'endpoint'     => $lp . '/inscricao.php',
-    'whatsapp'     => WHATSAPP_SECRETARIA,
-    'categorias'   => $categorias,
-    'valores'      => array_map(fn($p) => $p[$lote], $precos),
-    'checkouts'    => array_map(fn($id) => url_checkout($id, $lote), array_combine(array_keys($categorias), array_keys($categorias))),
+    'evento'        => EVENTO,
+    'lote'          => $lote,
+    'endpoint'      => $lp . '/inscricao.php',
+    'endpointCupom' => $lp . '/cupom.php',
+    'comCupom'      => PEDE_CUPOM ? CATEGORIA_COM_CUPOM : '',
+    'whatsapp'      => WHATSAPP_SECRETARIA,
+    'valor'         => valor_cheio($lote),
+    'checkout'      => url_checkout(CATEGORIA_PADRAO, $lote),
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
 </script>

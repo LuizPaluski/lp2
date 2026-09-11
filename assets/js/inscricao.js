@@ -5,10 +5,20 @@
 
     const nome = popup.querySelector('#nome');
     const telefone = popup.querySelector('#telefone');
+    const cupom = popup.querySelector('#cupom');
+    const avisoCupom = popup.querySelector('.js-aviso-cupom');
     const btEnviar = popup.querySelector('.js-enviar');
 
-    let categoria = null;
     let enviando = false;
+
+    function temCupom() {
+        return cupom !== null && cupom.value.trim() !== '';
+    }
+
+    // sem a escolha de vínculo no popup, quem informa o cupom é aluno ou ex-aluno
+    function categoria() {
+        return temCupom() ? dados.comCupom : 'geral';
+    }
 
     function brl(centavos) {
         return (centavos / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -20,21 +30,17 @@
             '',
             'Nome: ' + nome.value.trim(),
             'Telefone: ' + telefone.value.trim(),
-            'Condição: ' + dados.categorias[categoria],
             'Lote: ' + dados.lote + 'º',
-            'Investimento: ' + brl(dados.valores[categoria])
+            'Investimento: ' + brl(dados.valor)
         ];
+        if (temCupom()) linhas.push('Cupom: ' + cupom.value.trim());
         return 'https://wa.me/' + dados.whatsapp + '?text=' + encodeURIComponent(linhas.join('\n'));
     }
 
     // com o produto criado no carrinho a inscrição vai direto ao checkout; sem ele,
     // segue pela secretaria
     function destino() {
-        return dados.checkouts[categoria] || urlWhatsapp();
-    }
-
-    function rotuloBotao() {
-        return dados.checkouts[categoria] ? 'Ir para o checkout' : 'Falar com a secretaria';
+        return dados.checkout || urlWhatsapp();
     }
 
     function dadosPreenchidos() {
@@ -49,11 +55,9 @@
         return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
     }
 
-    function abrir(id) {
-        categoria = id;
-        popup.querySelector('.js-condicao').textContent = dados.categorias[id];
-        popup.querySelector('.js-valor').textContent = brl(dados.valores[id]);
-        btEnviar.textContent = rotuloBotao();
+    function abrir() {
+        popup.querySelector('.js-total').textContent = brl(dados.valor);
+        btEnviar.textContent = dados.checkout ? 'Ir para o checkout' : 'Falar com a secretaria';
         popup.classList.add('aberto');
         document.body.style.overflow = 'hidden';
         nome.focus();
@@ -64,8 +68,36 @@
         document.body.style.overflow = '';
     }
 
+    // a lista de cupons fica no servidor, então a conferência é feita lá
+    function conferirCupom() {
+        return fetch(dados.endpointCupom, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ codigo: cupom.value })
+        }).then((r) => r.json());
+    }
+
+    function seguir() {
+        enviando = true;
+        btEnviar.textContent = 'Enviando...';
+
+        const lead = JSON.stringify({
+            evento: dados.evento,
+            nome: nome.value.trim(),
+            telefone: telefone.value.trim(),
+            categoria: categoria(),
+            cupom: temCupom() ? cupom.value.trim() : '',
+            origem: window.location.href
+        });
+
+        // sendBeacon porque a página sai do ar em seguida: um fetch comum seria abortado.
+        navigator.sendBeacon(dados.endpoint, new Blob([lead], { type: 'application/json' }));
+
+        window.location.href = destino();
+    }
+
     document.querySelectorAll('.js-abrir-popup').forEach((bt) => {
-        bt.addEventListener('click', () => abrir(bt.dataset.categoria));
+        bt.addEventListener('click', abrir);
     });
 
     popup.querySelectorAll('.js-fechar').forEach((bt) => bt.addEventListener('click', fechar));
@@ -77,6 +109,12 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && popup.classList.contains('aberto')) fechar();
     });
+
+    if (cupom) {
+        cupom.addEventListener('input', () => {
+            avisoCupom.textContent = '';
+        });
+    }
 
     telefone.addEventListener('input', () => {
         telefone.value = mascaraTelefone(telefone.value);
@@ -90,20 +128,25 @@
 
     btEnviar.addEventListener('click', () => {
         if (enviando || !dadosPreenchidos()) return;
-        enviando = true;
-        btEnviar.textContent = 'Enviando...';
 
-        const lead = JSON.stringify({
-            evento: dados.evento,
-            nome: nome.value.trim(),
-            telefone: telefone.value.trim(),
-            categoria: categoria,
-            origem: window.location.href
-        });
+        // cupom em branco é o caminho normal: só quem tem vínculo com a UFAPE preenche
+        if (!temCupom()) {
+            seguir();
+            return;
+        }
 
-        // sendBeacon porque a página sai do ar em seguida: um fetch comum seria abortado.
-        navigator.sendBeacon(dados.endpoint, new Blob([lead], { type: 'application/json' }));
-
-        window.location.href = destino();
+        btEnviar.disabled = true;
+        conferirCupom()
+            .then((resposta) => {
+                if (resposta.valido) {
+                    seguir();
+                    return;
+                }
+                avisoCupom.textContent = 'Cupom não encontrado. Confira o código com a secretaria.';
+                cupom.focus();
+                btEnviar.disabled = false;
+            })
+            // sem resposta do servidor o cupom segue para a conferência no checkout
+            .catch(seguir);
     });
 })();

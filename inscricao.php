@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $entrada = json_decode(file_get_contents('php://input'), true);
 
 $categoria = $entrada['categoria'] ?? '';
+$cupom     = trim($entrada['cupom'] ?? '');
 $nome      = trim($entrada['nome'] ?? '');
 $telefone  = trim($entrada['telefone'] ?? '');
 
@@ -23,8 +24,8 @@ if (!isset($categorias[$categoria])
 }
 
 $lote     = LOTE_VIGENTE;
-$valor    = valor_inscricao($categoria, $lote);
-$checkout = url_checkout($categoria, $lote);
+$valor    = valor_cheio($lote);
+$checkout = url_checkout(CATEGORIA_PADRAO, $lote);
 
 $payload = [
     'evento'          => EVENTO,
@@ -35,6 +36,8 @@ $payload = [
     'lote'            => $lote,
     'total_centavos'  => $valor,
     'total_formatado' => formatar_brl($valor),
+    'cupom'           => $cupom,
+    'cupom_conferido' => $cupom !== '' && cupom_valido($cupom),
     'destino'         => $checkout === '' ? 'whatsapp' : 'checkout',
     'origem'          => mb_substr($entrada['origem'] ?? '', 0, 500),
     'enviado_em'      => date('c'),

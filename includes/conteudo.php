@@ -27,6 +27,45 @@ $diferenciais = [
 ];
 
 // Cada linha: horário, atividade, professor sugerido, conteúdo e foco.
+// Currículo por palestrante, exibido no modal do card. Quem ainda não mandou o
+// texto fica de fora e o card não abre.
+$curriculos = [
+    'Profa. Dra. Mayara Travalini de Lima' => [
+        '2014, bacharel em Medicina Veterinária na UNESP de Botucatu',
+        '2017, residência em Anestesiologia Veterinária na UNESP de Botucatu',
+        '2019, pós-graduação em Anestesia Regional Veterinária no IEP Ranvier',
+        '2020, mestrado em Anestesiologia na Faculdade de Medicina da UNESP de Botucatu',
+        '2023 até hoje, chefe do setor de Anestesiologia da UFAPE',
+        '2023 até hoje, preceptora da residência em Anestesiologia da UFAPE',
+        '2023 até hoje, auxiliar de coordenação da pós-graduação em Anestesiologia da UFAPE',
+        '2024, doutorado em Anestesiologia na Faculdade de Medicina da UNESP de Botucatu',
+    ],
+    'Prof. Dr. Alessandro Martins' => [
+        'Residência em Anestesiologia Veterinária na UNESP de Jaboticabal',
+        'Especialização em Anestesiologia pela FMVZ-USP',
+        'Doutorado em Anestesiologia pela FM-USP',
+        'Presidente da APAV',
+        'CEO da Faculdade UFAPE',
+    ],
+    'Prof. Renan Holczer' => [
+        'Médico Veterinário',
+        'Pós-graduação em Terapia Intensiva e Emergência Veterinária na UFAPE',
+        'Residência em Terapia Intensiva e Emergência na UFAPE',
+        'Preceptor da UTI na UFAPE',
+    ],
+];
+
+// iniciais no lugar do retrato de quem ainda não mandou foto
+function iniciais(string $nome): string
+{
+    $partes = array_values(array_filter(
+        explode(' ', $nome),
+        fn($p) => !in_array($p, ['Dr.', 'Dra.', 'M.V.', 'MV.', 'MSc.', 'Prof.', 'Profa.', 'TEAV', 'TEAV.', 'da', 'de', 'do'], true)
+    ));
+
+    return substr($partes[0], 0, 1) . substr(end($partes), 0, 1);
+}
+
 $programacao = [
     [
         'data'   => '20 de novembro de 2026, sexta-feira',

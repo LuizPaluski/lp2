@@ -151,29 +151,36 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
 
 <section class="secao cinza" id="investimento">
     <div class="lp-container">
-        <h2 class="titulo-secao">Escolha a sua <span>modalidade</span></h2>
+        <h2 class="titulo-secao">Inscrição e <span>investimento</span></h2>
         <p class="intro">
             Valores informados no projeto base do evento, sujeitos a confirmação de lotes e datas de virada.
         </p>
 
-        <div class="grade-precos duas">
-            <?php foreach ($categorias as $id => $titulo): ?>
-                <article class="lp-card card-preco">
-                    <h3><?= $titulo ?></h3>
-                    <div class="valores">
+        <div class="grade-precos uma">
+            <article class="lp-card card-preco">
+                <h3>Inscrição NeuroVet Summit</h3>
+                <p class="nota">Três dias de programação, com o Bootcamp do dia 22 limitado aos 30 primeiros inscritos.</p>
+                <div class="valores">
+                    <?php foreach ($categorias as $id => $titulo): ?>
                         <div>
-                            <p class="publico"><?= $lote ?>º lote</p>
-                            <p class="preco">
-                                <b><?= formatar_brl(valor_inscricao($id, $lote)) ?></b>
-                                <?php if ($lote === '1'): ?>
-                                    <s>2º lote <?= formatar_brl(valor_inscricao($id, $outro_lote)) ?></s>
-                                <?php endif; ?>
-                            </p>
+                            <p class="publico<?= $id === CATEGORIA_COM_CUPOM ? ' forte' : '' ?>"><?= $titulo ?></p>
+                            <?php if ($id === CATEGORIA_COM_CUPOM): ?>
+                                <p class="preco">
+                                    <span class="selo-desconto"><?= desconto_em_texto($lote) ?></span>
+                                </p>
+                            <?php else: ?>
+                                <p class="preco">
+                                    <b><?= formatar_brl(valor_cheio($lote)) ?></b>
+                                    <?php if ($lote === '1'): ?>
+                                        <s>2º lote <?= formatar_brl(valor_cheio($outro_lote)) ?></s>
+                                    <?php endif; ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
-                    </div>
-                    <button type="button" class="bt js-abrir-popup" data-categoria="<?= $id ?>">Quero esta condição</button>
-                </article>
-            <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <button type="button" class="bt js-abrir-popup">Quero me inscrever</button>
+            </article>
         </div>
 
         <div class="inclusos">
@@ -194,13 +201,7 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
         <h2 class="titulo-secao">Palestrantes <span>confirmados</span></h2>
         <div class="grade-palestrantes">
             <?php foreach ($palestrantes as $p): ?>
-                <article class="lp-card card-palestrante<?= $p['foto'] ? '' : ' sem-foto' ?>">
-                    <?php if ($p['foto']): ?>
-                        <img src="<?= $lp ?>/assets/img/<?= $p['foto'] ?>" alt="Retrato de <?= $p['nome'] ?>" loading="lazy">
-                    <?php endif; ?>
-                    <h3><?= $p['nome'] ?></h3>
-                    <p><?= $p['tema'] ?></p>
-                </article>
+                <?php require __DIR__ . '/includes/card-palestrante.php'; ?>
             <?php endforeach; ?>
         </div>
     </div>
@@ -230,4 +231,5 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
 
 <?php
 require __DIR__ . '/includes/popup-inscricao.php';
+require __DIR__ . '/includes/popup-palestrante.php';
 require __DIR__ . ($no_sistema ? '/includes/footer-sistema.php' : '/includes/footer.php');
