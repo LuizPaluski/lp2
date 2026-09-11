@@ -42,11 +42,11 @@ $precos = [
     'ufape' => ['1' => 84000,  '2' => 105000],
 ];
 
-// Id de cada condição no carrinho da faculdade, o mesmo esquema do simpósio de
-// cardiologia (cart/add/<id>). Enquanto o id estiver vazio, a inscrição daquela
-// condição vai para a secretaria pelo WhatsApp em vez do checkout.
+// Id do curso no carrinho da faculdade (cart/add/<id>). Toda inscrição sai pelo id
+// de valor cheio; o desconto de aluno e ex-aluno entra como cupom no carrinho.
+// Enquanto o id estiver vazio, a inscrição vai para a secretaria pelo WhatsApp.
 $checkout_ids = [
-    'geral' => '',
+    'geral' => '68634',
     'ufape' => '',
 ];
 
