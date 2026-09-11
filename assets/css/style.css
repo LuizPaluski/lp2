@@ -1,0 +1,1031 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Inter+Tight:wght@100..900&display=swap');
+
+/* Paleta institucional da Faculdade Ufape.
+   O nome --azul-medio corresponde ao --c-1-orange do site: o laranja antigo foi
+   trocado por azul sem renomear a variável de lá. */
+:root {
+    --azul: #056382;
+    --azul-escuro: #004a82;
+    --azul-medio: #6687a6;
+    --azul-claro: #b6cadb;
+    --rodape: #09385d;
+    --texto: #373737;
+    --cinza: #6c6c6c;
+    --linha: #e6e7e8;
+    --fundo: #f5f5f5;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none !important;
+}
+
+body {
+    margin: 0;
+    min-width: 0;
+    overflow-x: hidden;
+    font-family: "Funnel Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--texto);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--texto);
+    text-decoration: none;
+    transition: .2s;
+}
+
+a:hover {
+    color: #707070;
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    font-weight: 900;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 900;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+}
+
+p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+.lp-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Botões ------------------------------------------------------------------- */
+
+.bt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+    padding: 0 30px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--azul-medio);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.bt:hover {
+    color: #fff;
+    background-color: var(--azul-escuro);
+}
+
+.bt:disabled {
+    opacity: .35;
+    cursor: no-drop;
+}
+
+/* Sobre fundo azul o botão inverte: branco cheio para a ação principal,
+   contorno branco para a secundária. */
+.bt-claro {
+    background-color: #fff;
+    color: var(--azul);
+}
+
+.bt-claro:hover {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+}
+
+.bt-linha {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.bt-linha:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+.bt-azul {
+    background-color: var(--azul);
+}
+
+.bt-texto {
+    height: 54px;
+    padding: 0 20px;
+    background: none;
+    border: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cinza);
+    cursor: pointer;
+}
+
+/* Hero --------------------------------------------------------------------- */
+
+.hero {
+    background: linear-gradient(120deg, var(--azul) 0%, var(--azul-escuro) 100%);
+    color: #fff;
+    padding: 60px 0;
+}
+
+.hero .lp-container {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero .selo-evento {
+    display: inline-block;
+    padding: 6px 16px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--azul);
+    background-color: var(--azul-claro);
+    border-radius: 20px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    text-transform: uppercase;
+}
+
+.hero .subtitulo {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--azul-claro);
+}
+
+.hero .chamada {
+    margin-top: 20px;
+    max-width: 560px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.hero .publico {
+    margin-top: 15px;
+    font-size: 15px;
+    color: var(--azul-claro);
+}
+
+.hero .selos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 0;
+    list-style: none;
+}
+
+.hero .selos li {
+    padding: 7px 15px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 20px;
+}
+
+.hero .bts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.hero .foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.faixa-numeros {
+    background-color: var(--rodape);
+    color: #fff;
+}
+
+.faixa-numeros .lp-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.faixa-numeros dt {
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--azul-claro);
+}
+
+.faixa-numeros dd {
+    margin: 6px 0 0 0;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+/* Seções ------------------------------------------------------------------- */
+
+.secao {
+    padding: 70px 0;
+}
+
+.secao.cinza {
+    background-color: var(--fundo);
+}
+
+/* Faixa azul que sangra para fora do container, como no site institucional. */
+.titulo-secao {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 45px;
+    padding: 12px 0 12px 22px;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.titulo-secao::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    right: 15px;
+    left: -1000px;
+    top: 0;
+    bottom: 0;
+    background-color: var(--azul);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.titulo-secao span {
+    color: var(--azul-claro);
+}
+
+.chapeu {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--azul-medio);
+}
+
+.intro {
+    max-width: 720px;
+    margin-bottom: 40px;
+    color: var(--cinza);
+}
+
+/* Para quem é --------------------------------------------------------------- */
+
+.publico-alvo {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 50px;
+}
+
+.publico-alvo h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: var(--azul-escuro);
+    margin-bottom: 20px;
+}
+
+.publico-alvo p {
+    color: var(--cinza);
+}
+
+.lista-diferenciais {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: var(--linha);
+    border: 1px solid var(--linha);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.lista-diferenciais li {
+    padding: 22px;
+    font-size: 14px;
+    line-height: 1.55;
+    background-color: #fff;
+}
+
+/* Programação --------------------------------------------------------------- */
+
+.dia {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--azul);
+}
+
+.dia + .dia {
+    margin-top: 50px;
+}
+
+.agenda {
+    background-color: #fff;
+    border: 1px solid var(--linha);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.agenda .linha {
+    display: grid;
+    grid-template-columns: 150px 1fr 290px;
+    gap: 30px;
+    padding: 18px 25px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.agenda .linha:last-child {
+    border-bottom: 0;
+}
+
+.agenda .hora {
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--azul);
+}
+
+.agenda .atividade {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.agenda .palestrante {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--cinza);
+}
+
+/* o retrato ocupa a folga à esquerda: assim os nomes ficam todos na mesma coluna */
+.agenda .palestrante:has(img) {
+    margin-left: -50px;
+}
+
+/* linha com vários palestrantes: os retratos ficam dentro da coluna, sobrepostos,
+   para não passar por cima do texto da atividade */
+.agenda .palestrante:has(img + img) {
+    margin-left: 0;
+}
+
+.agenda .palestrante img + img {
+    margin-left: -14px;
+}
+
+.agenda .palestrante img {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid var(--azul-claro);
+}
+
+/* Cards ---------------------------------------------------------------------- */
+
+.lp-card {
+    background-color: #fff;
+    border: 1px solid var(--linha);
+    border-radius: 15px;
+    padding: 28px;
+}
+
+/* Investimento -------------------------------------------------------------- */
+
+.grade-precos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.card-preco {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-preco h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--azul-escuro);
+}
+
+.card-preco .nota {
+    min-height: 78px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--cinza);
+}
+
+.card-preco .nota.destaque {
+    padding: 12px 15px;
+    color: var(--texto);
+    background-color: var(--fundo);
+    border-radius: 10px;
+}
+
+.card-preco .valores {
+    flex-grow: 1;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--linha);
+}
+
+.card-preco .valores > div {
+    margin-bottom: 18px;
+}
+
+.card-preco .publico {
+    font-size: 14px;
+}
+
+.card-preco .preco {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.card-preco .preco b {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--azul);
+}
+
+.card-preco .preco s {
+    font-size: 13px;
+    color: #999;
+}
+
+.card-preco .bt {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.inclusos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.inclusos p {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid var(--linha);
+    border-radius: 15px;
+}
+
+.aviso-lote {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--cinza);
+}
+
+/* Palestrantes -------------------------------------------------------------- */
+
+.grade-palestrantes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card-palestrante {
+    text-align: center;
+    padding: 25px 20px;
+}
+
+.card-palestrante img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 4px solid var(--azul-claro);
+}
+
+.card-palestrante h3 {
+    margin-top: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--azul-escuro);
+}
+
+.card-palestrante p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--cinza);
+}
+
+/* FAQ ----------------------------------------------------------------------- */
+
+.faq {
+    background-color: #fff;
+    border: 1px solid var(--linha);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.faq details {
+    border-bottom: 1px solid var(--linha);
+}
+
+.faq details:last-child {
+    border-bottom: 0;
+}
+
+.faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 25px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: '';
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    background-color: var(--azul);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .2s;
+}
+
+.faq details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.faq .resposta {
+    padding: 0 25px 22px 25px;
+    font-size: 15px;
+    color: var(--cinza);
+}
+
+/* Chamada final ------------------------------------------------------------- */
+
+.chamada-final {
+    background: linear-gradient(120deg, var(--azul) 0%, var(--azul-escuro) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.chamada-final h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+}
+
+.chamada-final p {
+    margin-top: 18px;
+    font-weight: 300;
+    color: var(--azul-claro);
+}
+
+.chamada-final .bt {
+    margin-top: 30px;
+}
+
+/* Popup de inscrição --------------------------------------------------------- */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, .55);
+}
+
+.popup.aberto {
+    display: flex;
+}
+
+.popup .caixa {
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.popup .topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 30px;
+    color: #fff;
+    background-color: var(--azul);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.popup .topo h2 {
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.popup .topo p {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--azul-claro);
+}
+
+.popup .fechar {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+    line-height: 1;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup .fechar:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+.popup .corpo {
+    padding: 25px 30px 30px 30px;
+}
+
+.popup .campo {
+    margin-bottom: 22px;
+}
+
+.popup .rotulo {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--azul-escuro);
+}
+
+.popup .opcao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.popup .opcao:hover {
+    border-color: var(--azul-claro);
+}
+
+.popup .opcao:has(input:checked) {
+    border-color: var(--azul);
+    background-color: #f7fbfd;
+}
+
+.popup .opcao input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--azul);
+}
+
+.popup .opcao .titulo {
+    flex-grow: 1;
+}
+
+.popup .opcao .valor {
+    font-weight: 900;
+    white-space: nowrap;
+    color: var(--azul);
+}
+
+.popup .entrada {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--texto);
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+}
+
+.popup .entrada:focus {
+    border-color: var(--azul);
+}
+
+.popup label.rotulo-campo {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.popup .resumo {
+    padding: 18px 20px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+    background-color: var(--fundo);
+    border-radius: 10px;
+}
+
+.popup .rodape-popup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid var(--linha);
+}
+
+.popup .total .rotulo-total {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--cinza);
+}
+
+.popup .total .numero {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--azul);
+}
+
+/* Hero do NeuroVet: uma coluna enquanto a arte do evento não chega */
+.hero .lp-container.sem-foto {
+    grid-template-columns: 1fr;
+    max-width: 860px;
+    text-align: center;
+}
+
+.hero .lp-container.sem-foto .selos,
+.hero .lp-container.sem-foto .bts {
+    justify-content: center;
+}
+
+.hero .lp-container.sem-foto .chamada,
+.hero .lp-container.sem-foto .publico {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .tema {
+    margin-top: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.hero .lema {
+    margin-top: 18px;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--azul-claro);
+}
+
+/* O dia da programação leva o tema junto */
+.dia span {
+    text-transform: none;
+    font-weight: 400;
+    color: var(--cinza);
+}
+
+.dia span::before {
+    content: '· ';
+}
+
+/* Foco da atividade, abaixo do título dela */
+.agenda .foco {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--cinza);
+}
+
+.grade-precos.duas {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 780px;
+}
+
+.card-palestrante.sem-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 160px;
+}
+
+/* Responsivo ---------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+    .grade-precos.duas {
+        grid-template-columns: 1fr;
+    }
+
+    .hero .lp-container,
+    .publico-alvo,
+    .grade-precos {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .faixa-numeros .lp-container,
+    .grade-palestrantes,
+    .inclusos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .agenda .linha {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    /* empilhado não há coluna para alinhar: o retrato volta para dentro do card */
+    .agenda .palestrante:has(img),
+    .agenda .palestrante:has(img + img) {
+        margin-left: 0;
+    }
+
+    .titulo-secao {
+        font-size: 24px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .lp-container {
+        padding: 0 20px;
+    }
+
+    .secao {
+        padding: 45px 0;
+    }
+
+    /* a faixa do título sangra até a borda: o texto precisa de folga própria */
+    .titulo-secao {
+        font-size: 22px;
+        padding-left: 18px;
+        margin-bottom: 30px;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero .subtitulo {
+        font-size: 20px;
+    }
+
+    .publico-alvo h2,
+    .chamada-final h2 {
+        font-size: 24px;
+    }
+
+    .lista-diferenciais,
+    .grade-palestrantes,
+    .inclusos {
+        grid-template-columns: 1fr;
+    }
+
+    .faixa-numeros .lp-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .agenda .linha {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .lp-card {
+        padding: 22px 20px;
+    }
+
+    .card-preco .nota {
+        min-height: 0;
+    }
+
+    .card-preco .preco b {
+        font-size: 23px;
+    }
+
+    .faq summary,
+    .faq .resposta {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .popup .caixa {
+        max-height: 92vh;
+    }
+
+    .popup .corpo,
+    .popup .topo {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .popup .opcao {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .popup .rodape-popup .bt {
+        padding: 0 22px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .faixa-numeros .lp-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero .bts .bt {
+        width: 100%;
+    }
+}
