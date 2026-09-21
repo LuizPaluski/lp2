@@ -23,5 +23,6 @@ institucionais. A pasta de publicação fica em `PASTA_NO_SITE`.
 
 - `LOTE_VIGENTE` precisa ser trocado no mesmo dia em que os valores mudam no
   carrinho: a página não pode anunciar preço diferente do que o checkout cobra.
-- `$checkout_ids` está vazio. Enquanto ficar assim, a inscrição vai para a
-  secretaria no WhatsApp em vez do carrinho.
+- Em `$checkout_ids`, só o combo tem produto no carrinho (68634). Simpósio e
+  workshop isolados seguem sem id, então essas duas inscrições vão para a
+  secretaria no WhatsApp até a faculdade criar os produtos.

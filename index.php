@@ -96,7 +96,7 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
     <div class="lp-container">
         <h2 class="titulo-secao">Programação <span>científica</span></h2>
         <p class="intro">
-            Dois dias de imersão científica e um domingo inteiro de Bootcamp. Professores e horários seguem sujeitos
+            Dois dias de imersão científica e um domingo inteiro de workshop. Professores e horários seguem sujeitos
             a confirmação antes da divulgação.
         </p>
 
@@ -123,14 +123,14 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
     </div>
 </section>
 
-<section class="secao" id="bootcamp">
+<section class="secao" id="workshop">
     <div class="lp-container">
-        <span class="chapeu"><?= $bootcamp['data'] ?></span>
-        <h2 class="titulo-secao">Bootcamp <span><?= $bootcamp['tema'] ?></span></h2>
-        <p class="intro"><?= $bootcamp['descricao'] ?></p>
+        <span class="chapeu"><?= $workshop['data'] ?></span>
+        <h2 class="titulo-secao">Workshop <span><?= $workshop['tema'] ?></span></h2>
+        <p class="intro"><?= $workshop['descricao'] ?></p>
 
         <div class="agenda">
-            <?php foreach ($bootcamp['linhas'] as [$hora, $atividade, $quem, $foco]): ?>
+            <?php foreach ($workshop['linhas'] as [$hora, $atividade, $quem, $foco]): ?>
                 <div class="linha">
                     <span class="hora"><?= $hora ?></span>
                     <span class="atividade">
@@ -151,36 +151,38 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
 
 <section class="secao cinza" id="investimento">
     <div class="lp-container">
-        <h2 class="titulo-secao">Inscrição e <span>investimento</span></h2>
+        <h2 class="titulo-secao">Escolha a sua <span>modalidade</span></h2>
         <p class="intro">
-            Valores informados no projeto base do evento, sujeitos a confirmação de lotes e datas de virada.
+            Valores do <?= $lote === '1' ? 'primeiro' : 'segundo' ?> lote, sujeitos a confirmação das datas de virada.
         </p>
 
-        <div class="grade-precos uma">
-            <article class="lp-card card-preco">
-                <h3>Inscrição NeuroVet Summit</h3>
-                <p class="nota">Três dias de programação, com o Bootcamp do dia 22 limitado aos 30 primeiros inscritos.</p>
-                <div class="valores">
-                    <?php foreach ($categorias as $id => $titulo): ?>
-                        <div>
-                            <p class="publico<?= $id === CATEGORIA_COM_CUPOM ? ' forte' : '' ?>"><?= $titulo ?></p>
-                            <?php if ($id === CATEGORIA_COM_CUPOM): ?>
-                                <p class="preco">
-                                    <span class="selo-desconto"><?= desconto_em_texto($lote) ?></span>
-                                </p>
-                            <?php else: ?>
-                                <p class="preco">
-                                    <b><?= formatar_brl(valor_cheio($lote)) ?></b>
-                                    <?php if ($lote === '1'): ?>
-                                        <s>2º lote <?= formatar_brl(valor_cheio($outro_lote)) ?></s>
-                                    <?php endif; ?>
-                                </p>
-                            <?php endif; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <button type="button" class="bt js-abrir-popup">Quero me inscrever</button>
-            </article>
+        <div class="grade-precos">
+            <?php foreach ($modalidades as $id => $modalidade): ?>
+                <article class="lp-card card-preco">
+                    <h3><?= $modalidade['titulo'] ?></h3>
+                    <p class="nota"><?= $modalidade['nota'] ?></p>
+                    <div class="valores">
+                        <?php foreach ($categorias as $cat_id => $cat_label): ?>
+                            <div>
+                                <p class="publico<?= $cat_id === CATEGORIA_COM_CUPOM ? ' forte' : '' ?>"><?= $cat_label ?></p>
+                                <?php if ($cat_id === CATEGORIA_COM_CUPOM): ?>
+                                    <p class="preco">
+                                        <span class="selo-desconto"><?= desconto_em_texto($id, $lote) ?></span>
+                                    </p>
+                                <?php else: ?>
+                                    <p class="preco">
+                                        <b><?= formatar_brl(valor_cheio($id, $lote)) ?></b>
+                                        <?php if ($lote === '1'): ?>
+                                            <s>2º lote <?= formatar_brl(valor_cheio($id, $outro_lote)) ?></s>
+                                        <?php endif; ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="bt js-abrir-popup" data-modalidade="<?= $id ?>">Quero esta modalidade</button>
+                </article>
+            <?php endforeach; ?>
         </div>
 
         <div class="inclusos">

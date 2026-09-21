@@ -5,15 +5,15 @@
 
 $selos = [
     'Evento presencial',
-    'Bootcamp dia 22/11 exclusivo para os 30 primeiros inscritos',
+    'Workshop dia 22/11 exclusivo para os 30 primeiros inscritos',
     'Certificado UFAPE',
 ];
 
 $numeros = [
     'Data'           => '20, 21 e 22 de novembro de 2026',
     'Local'          => 'Faculdade Ufape, R. Honduras, 765, Jardim Paulista, São Paulo/SP',
-    'Carga horária'  => '24 horas estimadas, entre programação científica, Bootcamp e debriefings',
-    'Vagas Bootcamp' => 'Somente 30 vagas para o dia 22 de novembro',
+    'Carga horária'  => '24 horas estimadas, entre programação científica, workshop e debriefings',
+    'Vagas workshop' => 'Somente 30 vagas para o dia 22 de novembro',
 ];
 
 $diferenciais = [
@@ -21,7 +21,7 @@ $diferenciais = [
     'Integração de EEG bruto, BIS, qCON, qNOX, PTA, NIRS, entropia, pupilometria e índices derivados de inteligência artificial.',
     'Discussão de limitações, artefatos e interpretação em diferentes espécies.',
     'Trilha específica para interface Anestesiologia e UTI, incluindo sedação, neuroproteção e paciente crítico.',
-    'Bootcamp de um dia inteiro com estações rotativas, interpretação em tempo real e casos simulados.',
+    'Workshop de um dia inteiro com estações rotativas, interpretação em tempo real e casos simulados.',
     'Escape Room da Anestesia com debriefing baseado em evidências.',
     'Abordagem centrada em decisões clínicas, não apenas em equipamentos.',
 ];
@@ -106,12 +106,12 @@ $programacao = [
     ],
 ];
 
-$bootcamp = [
+$workshop = [
     'data'      => '22 de novembro de 2026, domingo',
     'tema'      => 'Monitorando um paciente do início ao fim',
     'descricao' => 'Dia inteiro de prática em estações rotativas, exclusivamente presencial. A turma será dividida em pequenos grupos conforme a quantidade de equipamentos e instrutores. Cada estação combina execução, interpretação e decisão clínica.',
     'linhas'    => [
-        ['08h30 às 09h00', 'Briefing geral do Bootcamp', 'Coordenação e instrutores', 'Segurança, divisão dos grupos, objetivos e critérios de debriefing.'],
+        ['08h30 às 09h00', 'Briefing geral do workshop', 'Coordenação e instrutores', 'Segurança, divisão dos grupos, objetivos e critérios de debriefing.'],
         ['09h00 às 09h40', 'Estação 1. Instalação correta', 'Instrutores NeuroVet', 'BIS, qCON, qNOX e PTA: colocação, preparo de pele e prevenção de artefatos.'],
         ['09h45 às 10h25', 'Estação 2. Simulador de EEG', 'Convidado em EEG e monitores', 'Superficial? Profundo? Artefato? Burst suppression? Previsão de despertar.'],
         ['10h30 às 11h10', 'Estação 3. Casos clínicos simulados', 'Daniel e instrutores', 'Piometra com BIS 18 e PAM 42; gato com cetamina e BIS elevado; decisão contextual.'],
@@ -130,7 +130,7 @@ $inclusos = [
     'Certificado UFAPE conforme modalidade e presença',
     'Apostila e material digital, se previsto',
     'Acesso às gravações das palestras teóricas, caso a modalidade seja confirmada',
-    'Participação nas estações do Bootcamp para os 30 primeiros inscritos',
+    'Participação nas estações do workshop para os 30 primeiros inscritos',
 ];
 
 // A foto entra quando a coordenação enviar; sem ela o card mostra só nome e atuação.
@@ -138,7 +138,7 @@ $inclusos = [
 // títulos diferentes a cada linha.
 $palestrantes = [
     ['nome' => 'Profa. Dra. Mayara Travalini de Lima', 'tema' => 'Coordenação científica. Neuromonitorização, nocicepção, integração multimodal e casos', 'foto' => 'mayara.jpg', 'chave' => 'Mayara'],
-    ['nome' => 'Prof. Dr. Alessandro Martins', 'tema' => 'Coordenação, tecnologia e integração, Bootcamp avançado', 'foto' => 'alessandro.jpg', 'chave' => 'Alessandro'],
+    ['nome' => 'Prof. Dr. Alessandro Martins', 'tema' => 'Coordenação, tecnologia e integração, workshop avançado', 'foto' => 'alessandro.jpg', 'chave' => 'Alessandro'],
     ['nome' => 'Prof. Daniel Zannin', 'tema' => 'Apoio à trilha de ventilação e UTI, conforme expertise e confirmação', 'foto' => 'zannin.jpg', 'chave' => 'Daniel'],
     ['nome' => 'Prof. Renan Holczer', 'tema' => 'Ventilação mecânica e UTI neuromonitorizada', 'foto' => 'renan.jpg', 'chave' => 'Renan'],
     ['nome' => 'Prof. MSc. Yuri Vicentini', 'tema' => 'Participação a definir conforme tema e disponibilidade', 'foto' => '', 'chave' => ''],
@@ -168,10 +168,10 @@ function retratos_da_linha(string $quem): array
 }
 
 $faq = [
-    ['O evento será presencial ou online?', 'A proposta principal é presencial. A gravação e transmissão das palestras teóricas ainda será confirmada. O Bootcamp é presencial.'],
+    ['O evento será presencial ou online?', 'A proposta principal é presencial. A gravação e transmissão das palestras teóricas ainda será confirmada. O workshop é presencial.'],
     ['É necessário saber interpretar EEG previamente?', 'Não. A sexta-feira foi desenhada justamente para construir a base clínica de neurofisiologia, EEG e índices processados.'],
     ['O evento será apenas sobre BIS?', 'Não. O NeuroVet integra BIS, qCON, qNOX, PTA, NIRS, entropia, pupilometria, EEG bruto, CSA e DSA e outros dados fisiológicos.'],
-    ['Haverá prática?', 'Sim. O domingo é dedicado ao Bootcamp, com estações rotativas, simulação, casos e Escape Room.'],
-    ['O Bootcamp está incluído no ingresso do simpósio?', 'A condição comercial ainda será definida: ingresso integrado para os três dias ou Bootcamp vendido separadamente.'],
+    ['Haverá prática?', 'Sim. O domingo é dedicado ao workshop, com estações rotativas, simulação, casos e Escape Room.'],
+    ['O workshop está incluído no ingresso do simpósio?', 'Depende da modalidade escolhida. Há inscrição no simpósio e no workshop juntos, somente no simpósio dos dias 20 e 21 e somente no workshop do dia 22. Os valores de cada uma estão na seção de investimento.'],
     ['Haverá certificado?', 'Sim, conforme presença e modalidade de inscrição definida pela UFAPE.'],
 ];

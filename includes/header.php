@@ -30,7 +30,7 @@ $menu_site = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="<?= $url_base ?>/">
     <title>NeuroVet Summit UFAPE | Neuromonitorização Veterinária 2026</title>
-    <meta name="description" content="NeuroVet Summit, I Simpósio Brasileiro de Neuromonitorização Veterinária. 20, 21 e 22 de novembro de 2026, na Faculdade Ufape, em São Paulo. Presencial, com Bootcamp para 30 inscritos.">
+    <meta name="description" content="NeuroVet Summit, I Simpósio Brasileiro de Neuromonitorização Veterinária. 20, 21 e 22 de novembro de 2026, na Faculdade Ufape, em São Paulo. Presencial, com workshop para 30 inscritos.">
 
     <meta name="facebook-domain-verification" content="cm3z08skorh47obagy1t3dyu43roy7" />
 
@@ -60,7 +60,7 @@ $menu_site = [
         var fullpath = '<?= $site ?>/';
     </script>
     <script src="<?= $estilo ?>/js/main.js"></script>
-    <script src="<?= $lp ?>/assets/js/mini-carrinho.js" defer></script>
+    <script src="<?= $lp ?>/assets/js/mini-carrinho.js?v=<?= filemtime(__DIR__ . '/../assets/js/mini-carrinho.js') ?>" defer></script>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

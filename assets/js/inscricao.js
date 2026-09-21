@@ -9,7 +9,12 @@
     const avisoCupom = popup.querySelector('.js-aviso-cupom');
     const btEnviar = popup.querySelector('.js-enviar');
 
+    let modalidade = null;
     let enviando = false;
+
+    function escolhida() {
+        return dados.modalidades[modalidade];
+    }
 
     function temCupom() {
         return cupom !== null && cupom.value.trim() !== '';
@@ -30,8 +35,9 @@
             '',
             'Nome: ' + nome.value.trim(),
             'Telefone: ' + telefone.value.trim(),
+            'Modalidade: ' + escolhida().titulo,
             'Lote: ' + dados.lote + 'º',
-            'Investimento: ' + brl(dados.valor)
+            'Investimento: ' + brl(escolhida().preco)
         ];
         if (temCupom()) linhas.push('Cupom: ' + cupom.value.trim());
         return 'https://wa.me/' + dados.whatsapp + '?text=' + encodeURIComponent(linhas.join('\n'));
@@ -40,7 +46,7 @@
     // com o produto criado no carrinho a inscrição vai direto ao checkout; sem ele,
     // segue pela secretaria
     function destino() {
-        return dados.checkout || urlWhatsapp();
+        return escolhida().checkout || urlWhatsapp();
     }
 
     function dadosPreenchidos() {
@@ -55,9 +61,11 @@
         return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
     }
 
-    function abrir() {
-        popup.querySelector('.js-total').textContent = brl(dados.valor);
-        btEnviar.textContent = dados.checkout ? 'Ir para o checkout' : 'Falar com a secretaria';
+    function abrir(id) {
+        modalidade = id;
+        popup.querySelector('.js-modalidade').textContent = escolhida().titulo;
+        popup.querySelector('.js-total').textContent = brl(escolhida().preco);
+        btEnviar.textContent = escolhida().checkout ? 'Ir para o checkout' : 'Falar com a secretaria';
         popup.classList.add('aberto');
         document.body.style.overflow = 'hidden';
         nome.focus();
@@ -85,6 +93,7 @@
             evento: dados.evento,
             nome: nome.value.trim(),
             telefone: telefone.value.trim(),
+            modalidade: modalidade,
             categoria: categoria(),
             cupom: temCupom() ? cupom.value.trim() : '',
             origem: window.location.href
@@ -97,7 +106,7 @@
     }
 
     document.querySelectorAll('.js-abrir-popup').forEach((bt) => {
-        bt.addEventListener('click', abrir);
+        bt.addEventListener('click', () => abrir(bt.dataset.modalidade));
     });
 
     popup.querySelectorAll('.js-fechar').forEach((bt) => bt.addEventListener('click', fechar));

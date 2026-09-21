@@ -536,6 +536,8 @@ html {
 .inclusos p {
     display: flex;
     align-items: center;
+    /* margem zerada porque a regra geral tira só a do último e desalinha o card */
+    margin: 0;
     padding: 18px 20px;
     font-size: 14px;
     background-color: #fff;
@@ -949,21 +951,6 @@ html {
     color: var(--cinza);
 }
 
-.grade-precos.duas {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 780px;
-}
-
-.grade-precos.uma {
-    grid-template-columns: minmax(0, 460px);
-    justify-content: center;
-}
-
-/* a altura mínima da nota existe para alinhar cards lado a lado */
-.grade-precos.uma .card-preco .nota {
-    min-height: 0;
-}
-
 .card-palestrante.sem-foto {
     display: flex;
     flex-direction: column;
@@ -1010,10 +997,6 @@ html {
 /* Responsivo ---------------------------------------------------------------- */
 
 @media (max-width: 991px) {
-    .grade-precos.duas {
-        grid-template-columns: 1fr;
-    }
-
     .hero .lp-container,
     .publico-alvo,
     .grade-precos {

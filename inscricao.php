@@ -11,12 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $entrada = json_decode(file_get_contents('php://input'), true);
 
-$categoria = $entrada['categoria'] ?? '';
-$cupom     = trim($entrada['cupom'] ?? '');
-$nome      = trim($entrada['nome'] ?? '');
-$telefone  = trim($entrada['telefone'] ?? '');
+$modalidade = $entrada['modalidade'] ?? '';
+$categoria  = $entrada['categoria'] ?? '';
+$cupom      = trim($entrada['cupom'] ?? '');
+$nome       = trim($entrada['nome'] ?? '');
+$telefone   = trim($entrada['telefone'] ?? '');
 
-if (!isset($categorias[$categoria])
+if (!isset($modalidades[$modalidade], $categorias[$categoria])
     || mb_strlen($nome) < 3
     || strlen(preg_replace('/\D/', '', $telefone)) < 10) {
     http_response_code(422);
@@ -24,23 +25,28 @@ if (!isset($categorias[$categoria])
 }
 
 $lote     = LOTE_VIGENTE;
-$valor    = valor_cheio($lote);
-$checkout = url_checkout(CATEGORIA_PADRAO, $lote);
+$valor    = valor_cheio($modalidade, $lote);
+$checkout = url_checkout($modalidade, $categoria, $lote);
+$origem   = mb_substr($entrada['origem'] ?? '', 0, 500);
 
 $payload = [
-    'evento'          => EVENTO,
-    'nome'            => $nome,
-    'telefone'        => $telefone,
-    'categoria'       => $categoria,
-    'categoria_label' => $categorias[$categoria],
-    'lote'            => $lote,
-    'total_centavos'  => $valor,
-    'total_formatado' => formatar_brl($valor),
-    'cupom'           => $cupom,
-    'cupom_conferido' => $cupom !== '' && cupom_valido($cupom),
-    'destino'         => $checkout === '' ? 'whatsapp' : 'checkout',
-    'origem'          => mb_substr($entrada['origem'] ?? '', 0, 500),
-    'enviado_em'      => date('c'),
+    'evento'           => EVENTO,
+    'nome'             => $nome,
+    'telefone'         => $telefone,
+    'modalidade'       => $modalidade,
+    'modalidade_label' => $modalidades[$modalidade]['titulo'],
+    'categoria'        => $categoria,
+    'categoria_label'  => $categorias[$categoria],
+    'lote'             => $lote,
+    'total_centavos'   => $valor,
+    'total_formatado'  => formatar_brl($valor),
+    'cupom'            => $cupom,
+    'cupom_conferido'  => $cupom !== '' && cupom_valido($cupom),
+    'destino'          => $checkout === '' ? 'whatsapp' : 'checkout',
+    'origem'           => $origem,
+    // objeto mesmo quando vazio, para o campo não mudar de tipo no n8n
+    'utms'             => (object) utms_da_origem($origem),
+    'enviado_em'       => date('c'),
 ];
 
 if ($checkout !== '') {
@@ -60,7 +66,7 @@ $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($resposta === false || $status >= 400) {
-    error_log("neurovet: webhook respondeu $status na inscricao $categoria");
+    error_log("neurovet: webhook respondeu $status na inscricao $modalidade/$categoria");
 }
 
 http_response_code(204);

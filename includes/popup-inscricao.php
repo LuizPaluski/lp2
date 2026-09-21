@@ -4,7 +4,7 @@
         <div class="topo">
             <div>
                 <h2 id="popup-titulo">Garantir minha vaga</h2>
-                <p>NeuroVet Summit, 20, 21 e 22 de novembro de 2026</p>
+                <p>Modalidade: <strong class="js-modalidade"></strong></p>
             </div>
             <button type="button" class="fechar js-fechar" aria-label="Fechar">&times;</button>
         </div>
@@ -30,7 +30,7 @@
 
             <div class="rodape-popup">
                 <div class="total">
-                    <span class="rotulo-total">Investimento (<?= $lote ?>º lote)</span>
+                    <span class="rotulo-total">Total (<?= $lote ?>º lote)</span>
                     <div class="numero js-total"></div>
                 </div>
                 <button type="button" class="bt bt-azul js-enviar" disabled></button>
@@ -39,6 +39,18 @@
     </div>
 </div>
 
+<?php
+// o total sempre mostra o valor cheio: o desconto de aluno e ex-aluno sai do cupom no
+// carrinho. Sem id de produto, o botão manda a inscrição para a secretaria.
+$modalidades_popup = [];
+foreach ($modalidades as $id => $modalidade) {
+    $modalidades_popup[$id] = [
+        'titulo'   => $modalidade['titulo'],
+        'preco'    => valor_cheio($id, $lote),
+        'checkout' => url_checkout($id, CATEGORIA_PADRAO, $lote),
+    ];
+}
+?>
 <script>
 window.NEUROVET = <?= json_encode([
     'evento'        => EVENTO,
@@ -47,7 +59,6 @@ window.NEUROVET = <?= json_encode([
     'endpointCupom' => $lp . '/cupom.php',
     'comCupom'      => PEDE_CUPOM ? CATEGORIA_COM_CUPOM : '',
     'whatsapp'      => WHATSAPP_SECRETARIA,
-    'valor'         => valor_cheio($lote),
-    'checkout'      => url_checkout(CATEGORIA_PADRAO, $lote),
+    'modalidades'   => $modalidades_popup,
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
 </script>
