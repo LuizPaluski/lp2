@@ -8,6 +8,7 @@
     --azul-escuro: #004a82;
     --azul-medio: #6687a6;
     --azul-claro: #b6cadb;
+    --banner: #035c53;
     --rodape: #09385d;
     --texto: #373737;
     --cinza: #6c6c6c;
@@ -149,7 +150,7 @@ html {
 /* Hero --------------------------------------------------------------------- */
 
 .hero {
-    background: linear-gradient(120deg, var(--azul) 0%, var(--azul-escuro) 100%);
+    background-color: var(--banner);
     color: #fff;
     padding: 60px 0;
 }
