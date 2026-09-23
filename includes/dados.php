@@ -49,7 +49,7 @@ $modalidades = [
     'combo' => [
         'titulo'      => 'Simpósio + workshop',
         'nota'        => 'Os três dias: simpósio nos dias 20 e 21 e workshop no dia 22, limitado aos 30 primeiros inscritos.',
-        'checkout_id' => ['geral' => '68634'],
+        'checkout_id' => ['geral' => '68631'],
         'precos'      => [
             'geral' => ['1' => 120000, '2' => 150000],
             'ufape' => ['1' => 84000,  '2' => 105000],

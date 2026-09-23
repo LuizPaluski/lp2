@@ -23,9 +23,11 @@ institucionais. A pasta de publicação fica em `PASTA_NO_SITE`.
 
 - `LOTE_VIGENTE` precisa ser trocado no mesmo dia em que os valores mudam no
   carrinho: a página não pode anunciar preço diferente do que o checkout cobra.
-- O combo (68634) e o workshop isolado (68633) já têm produto no carrinho. O
-  simpósio isolado segue sem id, então essa inscrição vai para a secretaria no
-  WhatsApp até a faculdade criar o produto.
+- O combo (68631, "Combo Simpósio + Workshop Neuromonitorização") e o workshop
+  isolado (68633) já têm produto no carrinho. O simpósio isolado segue sem id,
+  então essa inscrição vai para a secretaria no WhatsApp até a faculdade criar
+  o produto. O 68634, "NEUROVET Summit 2026", foi o primeiro produto do combo e
+  saiu daqui quando o 68631 foi criado com o nome das duas modalidades.
 - O 68633 está cadastrado a R$ 1.250,00, que é o valor de 2º lote. Enquanto
   `LOTE_VIGENTE` for '1', a página anuncia R$ 950,00 e o carrinho cobra
   R$ 1.250,00: corrigir no carrinho antes de abrir as inscrições.
