@@ -53,6 +53,21 @@ $curriculos = [
         'Residência em Terapia Intensiva e Emergência na UFAPE',
         'Preceptor da UTI na UFAPE',
     ],
+    'Prof. MSc. Yuri Ferreira Vicentini' => [
+        'Médico Veterinário pela Universidade do Oeste Paulista, Unoeste',
+        'Residência em Clínica e Cirurgia de Equinos na FMVZ-USP',
+        'Pós-graduado em Anestesiologia, Dor e Intensivismo na FMVZ-USP',
+        'Mestre pelo VCI da FMVZ-USP',
+        'Professor na UniFAJ e na UniMAX',
+    ],
+    'Prof. Dr. Rodrigo Neca Ribeiro' => [
+        'Médico Veterinário pela PUCPR',
+        'Pós-graduado em Clínica Médica e Cirúrgica de Pequenos Animais no Instituto Qualittas',
+        'Mestre em Medicina Veterinária pela Universidade Estadual de Maringá, UEM',
+        'Doutor em Ciências Veterinárias pela Universidade Federal do Paraná, UFPR',
+        'Professor de Anestesiologia Veterinária no Centro Universitário FAG',
+        'Responsável técnico do Centro Avançado de Apoio Veterinário, CAAV',
+    ],
 ];
 
 // iniciais no lugar do retrato de quem ainda não mandou foto
@@ -141,8 +156,8 @@ $palestrantes = [
     ['nome' => 'Prof. Dr. Alessandro Martins', 'tema' => 'Coordenação, tecnologia e integração, workshop avançado', 'foto' => 'alessandro.jpg', 'chave' => 'Alessandro'],
     ['nome' => 'Prof. Daniel Zannin', 'tema' => 'Apoio à trilha de ventilação e UTI, conforme expertise e confirmação', 'foto' => 'zannin.jpg', 'chave' => 'Daniel'],
     ['nome' => 'Prof. Renan Holczer', 'tema' => 'Ventilação mecânica e UTI neuromonitorizada', 'foto' => 'renan.jpg', 'chave' => 'Renan'],
-    ['nome' => 'Prof. MSc. Yuri Vicentini', 'tema' => 'Artefatos de EEG, qCON e qNOX na decisão anestésica', 'foto' => 'yuri.jpg', 'chave' => 'Yuri'],
-    ['nome' => 'Prof. Dr. Rodrigo Neca', 'tema' => 'Neurofisiologia aplicada à anestesia e neuromonitorização multimodal', 'foto' => 'rodrigo.jpg', 'chave' => 'Rodrigo'],
+    ['nome' => 'Prof. MSc. Yuri Ferreira Vicentini', 'tema' => 'Artefatos de EEG, qCON e qNOX na decisão anestésica', 'foto' => 'yuri.jpg', 'chave' => 'Yuri'],
+    ['nome' => 'Prof. Dr. Rodrigo Neca Ribeiro', 'tema' => 'Neurofisiologia aplicada à anestesia e neuromonitorização multimodal', 'foto' => 'rodrigo.jpg', 'chave' => 'Rodrigo'],
     ['nome' => 'Convidado em neurofisiologia e EEG clínico', 'tema' => 'A definir', 'foto' => '', 'chave' => ''],
     ['nome' => 'Convidado em neuroanestesia e NIRS', 'tema' => 'A definir', 'foto' => '', 'chave' => ''],
     ['nome' => 'Convidado em nocicepção e variabilidade da frequência cardíaca', 'tema' => 'A definir', 'foto' => '', 'chave' => ''],
