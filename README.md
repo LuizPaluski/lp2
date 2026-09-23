@@ -1,6 +1,7 @@
 # lp2
 
-Landing page do NeuroVet Summit, 20, 21 e 22 de novembro de 2026, Faculdade UFAPE.
+Landing page do I Simpósio Brasileiro de Neuromonitorização Veterinária, Anestesia
+e Neurologia, 20, 21 e 22 de novembro de 2026, Faculdade UFAPE.
 
 PHP puro, sem framework e sem dependência: a página monta a partir dos arrays de
 `includes/dados.php` (preços, lotes, ids do carrinho) e `includes/conteudo.php`

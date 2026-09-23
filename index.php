@@ -21,8 +21,8 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
     <div class="lp-container<?= $banner ? '' : ' sem-foto' ?>">
         <div>
             <span class="selo-evento">20, 21 e 22 de novembro de 2026</span>
-            <h1>NeuroVet Summit</h1>
-            <p class="subtitulo">I Simpósio Brasileiro de Neuromonitorização Veterinária</p>
+            <h1>I Simpósio Brasileiro de Neuromonitorização Veterinária</h1>
+            <p class="subtitulo">Anestesia e Neurologia</p>
             <p class="tema">Neuromonitorização, Nocicepção e Inteligência Anestésica</p>
             <p class="lema">Do cérebro à analgesia: monitorando aquilo que realmente importa.</p>
             <p class="chamada">
@@ -47,7 +47,7 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
         </div>
         <?php if ($banner): ?>
             <div class="foto">
-                <img src="<?= $lp ?>/assets/img/<?= $banner ?>" alt="NeuroVet Summit, I Simpósio Brasileiro de Neuromonitorização Veterinária">
+                <img src="<?= $lp ?>/assets/img/<?= $banner ?>" alt="I Simpósio Brasileiro de Neuromonitorização Veterinária, Anestesia e Neurologia">
             </div>
         <?php endif; ?>
     </div>
@@ -226,7 +226,7 @@ require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/hea
 <section class="chamada-final">
     <div class="lp-container">
         <h2>Do cérebro à analgesia, monitorando aquilo que realmente importa</h2>
-        <p>20, 21 e 22 de novembro de 2026, Faculdade Ufape, São Paulo/SP. Vagas [a definir].</p>
+        <p>20, 21 e 22 de novembro de 2026, Faculdade Ufape, São Paulo/SP.</p>
         <a class="bt bt-claro" href="#investimento">Fazer minha inscrição</a>
     </div>
 </section>

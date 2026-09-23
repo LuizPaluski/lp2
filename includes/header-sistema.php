@@ -31,7 +31,7 @@ if ($this->input->get('utm_source')) {
 
     <meta name="facebook-domain-verification" content="cm3z08skorh47obagy1t3dyu43roy7" />
 
-    <meta property="og:title" content="NeuroVet Summit, Neuromonitorização, Nocicepção e Inteligência Anestésica">
+    <meta property="og:title" content="I Simpósio Brasileiro de Neuromonitorização Veterinária, Anestesia e Neurologia">
     <meta property="og:description" content="Do cérebro à analgesia: monitorando aquilo que realmente importa. 20, 21 e 22 de novembro de 2026, presencial, com certificado UFAPE.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= current_url(); ?>">

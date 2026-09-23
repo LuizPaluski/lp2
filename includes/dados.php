@@ -1,5 +1,8 @@
 <?php
-// Configuração e tabela de preços do NeuroVet Summit.
+// Configuração e tabela de preços do I Simpósio Brasileiro de Neuromonitorização
+// Veterinária, Anestesia e Neurologia. As chaves técnicas (EVENTO, PASTA_NO_SITE e
+// as UTMs) seguem com "neurovet": são contrato com o webhook, com a URL publicada e
+// com as campanhas que já estão no ar.
 // Valores em centavos para não arrastar erro de arredondamento.
 
 date_default_timezone_set('America/Sao_Paulo');
