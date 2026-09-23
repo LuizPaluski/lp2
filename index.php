@@ -11,8 +11,8 @@ $outro_lote = $lote === '1' ? '2' : '1';
 $no_sistema = function_exists('site_url');
 $lp = $no_sistema ? rtrim(base_url(PASTA_NO_SITE), '/') : '.';
 
-// O banner do evento entra quando a coordenação enviar a arte.
-$banner = file_exists(__DIR__ . '/assets/img/hero-neurovet.jpg') ? 'hero-neurovet.jpg' : '';
+// Sem a arte do evento o hero fica em uma coluna só, centralizado.
+$banner = file_exists(__DIR__ . '/assets/img/hero-simposio.jpg') ? 'hero-simposio.jpg' : '';
 
 require __DIR__ . ($no_sistema ? '/includes/header-sistema.php' : '/includes/header.php');
 ?>
