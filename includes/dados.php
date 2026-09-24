@@ -30,6 +30,10 @@ const WEBHOOK_INSCRICAO = 'https://webhook.thegrowthhub.app.br/webhook/8ca1795b-
 const CATEGORIA_PADRAO = 'geral';
 const CATEGORIA_COM_CUPOM = 'ufape';
 
+// A condição de aluno e ex-aluno é o valor de demais participantes com desconto,
+// igual em todas as modalidades e nos dois lotes.
+const DESCONTO_EX_ALUNO = 0.20;
+
 // Enquanto o cupom não existir no carrinho, a página anuncia o desconto e o popup
 // não pede o código: a condição é acertada com a secretaria.
 const PEDE_CUPOM = false;
@@ -55,7 +59,6 @@ $modalidades = [
         'checkout_id' => ['geral' => '68631'],
         'precos'      => [
             'geral' => ['1' => 120000, '2' => 150000],
-            'ufape' => ['1' => 84000,  '2' => 105000],
         ],
     ],
     'simposio' => [
@@ -64,7 +67,6 @@ $modalidades = [
         'checkout_id' => ['geral' => ''],
         'precos'      => [
             'geral' => ['1' => 40000, '2' => 50000],
-            'ufape' => ['1' => 28000, '2' => 35000],
         ],
     ],
     'workshop' => [
@@ -73,7 +75,6 @@ $modalidades = [
         'checkout_id' => ['geral' => '68633'],
         'precos'      => [
             'geral' => ['1' => 95000, '2' => 125000],
-            'ufape' => ['1' => 70000, '2' => 95000],
         ],
     ],
 ];
@@ -83,26 +84,17 @@ function formatar_brl(int $centavos): string
     return 'R$ ' . number_format($centavos / 100, 2, ',', '.');
 }
 
-function valor_inscricao(string $modalidade, string $categoria, string $lote): int
-{
-    global $modalidades;
-
-    return $modalidades[$modalidade]['precos'][$categoria][$lote];
-}
-
 // Valor que a página anuncia e que o checkout cobra, sem o desconto de vínculo.
 function valor_cheio(string $modalidade, string $lote): int
 {
-    return valor_inscricao($modalidade, CATEGORIA_PADRAO, $lote);
+    global $modalidades;
+
+    return $modalidades[$modalidade]['precos'][CATEGORIA_PADRAO][$lote];
 }
 
-// O percentual sai da própria tabela para não haver dois números a manter.
-function desconto_em_texto(string $modalidade, string $lote): string
+function desconto_em_texto(): string
 {
-    $cheio = valor_cheio($modalidade, $lote);
-    $percentual = (int) round((1 - valor_inscricao($modalidade, CATEGORIA_COM_CUPOM, $lote) / $cheio) * 100);
-
-    return $percentual . '% de desconto usando o cupom';
+    return (int) round(DESCONTO_EX_ALUNO * 100) . '% de desconto usando o cupom';
 }
 
 function cupom_valido(string $codigo): bool

@@ -32,3 +32,6 @@ institucionais. A pasta de publicação fica em `PASTA_NO_SITE`.
 - O 68633 está cadastrado a R$ 1.250,00, que é o valor de 2º lote. Enquanto
   `LOTE_VIGENTE` for '1', a página anuncia R$ 950,00 e o carrinho cobra
   R$ 1.250,00: corrigir no carrinho antes de abrir as inscrições.
+- O cupom de aluno e ex-aluno precisa dar os 20% de `DESCONTO_EX_ALUNO`, que é o
+  que a página anuncia. No 1º lote isso é R$ 960,00 no combo, R$ 320,00 no
+  simpósio e R$ 760,00 no workshop; no 2º, R$ 1.200,00, R$ 400,00 e R$ 1.000,00.
