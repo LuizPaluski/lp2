@@ -9,7 +9,7 @@
     --azul-medio: #6687a6;
     --azul-claro: #b6cadb;
     --banner: #035c53;
-    --rodape: #09385d;
+    --banner-escuro: #01302a;
     --texto: #373737;
     --cinza: #6c6c6c;
     --linha: #e6e7e8;
@@ -230,7 +230,7 @@ html {
 }
 
 .faixa-numeros {
-    background-color: var(--rodape);
+    background-color: var(--banner-escuro);
     color: #fff;
 }
 
