@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Inter+Tight:wght@100..900&display=swap');
 
-/* Paleta institucional da Faculdade Ufape.
-   O nome --azul-medio corresponde ao --c-1-orange do site: o laranja antigo foi
-   trocado por azul sem renomear a variável de lá. */
+/* Paleta do evento, derivada do verde do banner. Os tons saíram dos azuis da
+   paleta institucional, calibrados para manter o mesmo contraste de cada um. */
 :root {
-    --azul: #056382;
-    --azul-escuro: #004a82;
-    --azul-medio: #6687a6;
-    --azul-claro: #b6cadb;
+    --verde: #04685d;
+    --verde-escuro: #005149;
+    --verde-medio: #528e88;
+    --verde-claro: #a1d0cc;
     --banner: #035c53;
     --banner-escuro: #01302a;
     --texto: #373737;
@@ -92,7 +91,7 @@ html {
     font-weight: 900;
     text-transform: uppercase;
     color: #fff;
-    background-color: var(--azul-medio);
+    background-color: var(--verde-medio);
     border: 0;
     border-radius: 30px;
     cursor: pointer;
@@ -101,7 +100,7 @@ html {
 
 .bt:hover {
     color: #fff;
-    background-color: var(--azul-escuro);
+    background-color: var(--verde-escuro);
 }
 
 .bt:disabled {
@@ -109,16 +108,16 @@ html {
     cursor: no-drop;
 }
 
-/* Sobre fundo azul o botão inverte: branco cheio para a ação principal,
+/* Sobre o verde do banner o botão inverte: branco cheio para a ação principal,
    contorno branco para a secundária. */
 .bt-claro {
     background-color: #fff;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 .bt-claro:hover {
-    background-color: var(--azul-claro);
-    color: var(--azul-escuro);
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
 }
 
 .bt-linha {
@@ -131,8 +130,8 @@ html {
     background-color: rgba(255, 255, 255, .15);
 }
 
-.bt-azul {
-    background-color: var(--azul);
+.bt-solido {
+    background-color: var(--verde);
 }
 
 .bt-texto {
@@ -170,8 +169,8 @@ html {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: .12em;
-    color: var(--azul);
-    background-color: var(--azul-claro);
+    color: var(--verde);
+    background-color: var(--verde-claro);
     border-radius: 20px;
 }
 
@@ -184,7 +183,7 @@ html {
     margin-top: 12px;
     font-size: 24px;
     font-weight: 300;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .hero .chamada {
@@ -197,7 +196,7 @@ html {
 .hero .publico {
     margin-top: 15px;
     font-size: 15px;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .hero .selos {
@@ -247,7 +246,7 @@ html {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: .14em;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .faixa-numeros dd {
@@ -266,7 +265,7 @@ html {
     background-color: var(--fundo);
 }
 
-/* Faixa azul que sangra para fora do container, como no site institucional. */
+/* Faixa que sangra para fora do container, como no site institucional. */
 .titulo-secao {
     position: relative;
     z-index: 1;
@@ -286,13 +285,13 @@ html {
     left: -1000px;
     top: 0;
     bottom: 0;
-    background-color: var(--azul);
+    background-color: var(--verde);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
 .titulo-secao span {
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .chapeu {
@@ -302,7 +301,7 @@ html {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: .18em;
-    color: var(--azul-medio);
+    color: var(--verde-medio);
 }
 
 .intro {
@@ -322,7 +321,7 @@ html {
 .publico-alvo h2 {
     font-size: 30px;
     text-transform: uppercase;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
     margin-bottom: 20px;
 }
 
@@ -357,7 +356,7 @@ html {
     font-size: 20px;
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 .dia + .dia {
@@ -388,7 +387,7 @@ html {
     font-size: 14px;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 .agenda .atividade {
@@ -426,7 +425,7 @@ html {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 2px solid var(--azul-claro);
+    border: 2px solid var(--verde-claro);
 }
 
 /* Cards ---------------------------------------------------------------------- */
@@ -455,7 +454,7 @@ html {
 .card-preco h3 {
     font-size: 18px;
     text-transform: uppercase;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
 }
 
 .card-preco .nota {
@@ -490,7 +489,7 @@ html {
 
 .card-preco .publico.forte {
     font-weight: 700;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
 }
 
 .card-preco .preco {
@@ -503,7 +502,7 @@ html {
 .card-preco .preco b {
     font-size: 26px;
     font-weight: 900;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 .card-preco .preco .selo-desconto {
@@ -513,7 +512,7 @@ html {
     text-transform: uppercase;
     letter-spacing: .06em;
     color: #fff;
-    background-color: var(--azul-medio);
+    background-color: var(--verde-medio);
     border-radius: 20px;
 }
 
@@ -573,8 +572,8 @@ html {
 }
 
 .card-palestrante:has(.ver-cv):hover {
-    border-color: var(--azul-medio);
-    box-shadow: 0 6px 18px rgba(5, 99, 130, .12);
+    border-color: var(--verde-medio);
+    box-shadow: 0 6px 18px rgba(4, 104, 93, .12);
 }
 
 .ver-cv {
@@ -585,7 +584,7 @@ html {
     font-weight: 700;
     letter-spacing: .5px;
     text-transform: uppercase;
-    color: var(--azul);
+    color: var(--verde);
     background: none;
     border: 0;
     cursor: pointer;
@@ -600,7 +599,7 @@ html {
 }
 
 .ver-cv:hover {
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
     text-decoration: underline;
 }
 
@@ -614,10 +613,10 @@ html {
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: var(--azul);
+    color: var(--verde);
     background-color: #eef3f8;
     border-radius: 50%;
-    border: 4px solid var(--azul-claro);
+    border: 4px solid var(--verde-claro);
 }
 
 .card-palestrante img {
@@ -627,14 +626,14 @@ html {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 4px solid var(--azul-claro);
+    border: 4px solid var(--verde-claro);
 }
 
 .card-palestrante h3 {
     margin-top: 18px;
     font-size: 16px;
     text-transform: uppercase;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
 }
 
 .card-palestrante p {
@@ -668,7 +667,7 @@ html {
     padding: 20px 25px;
     font-size: 16px;
     font-weight: 700;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
     cursor: pointer;
     list-style: none;
 }
@@ -682,7 +681,7 @@ html {
     flex-shrink: 0;
     width: 26px;
     height: 26px;
-    background-color: var(--azul);
+    background-color: var(--verde);
     border-radius: 50%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-position: center;
@@ -703,7 +702,7 @@ html {
 /* Chamada final ------------------------------------------------------------- */
 
 .chamada-final {
-    background: linear-gradient(120deg, var(--azul) 0%, var(--azul-escuro) 100%);
+    background: linear-gradient(120deg, var(--verde) 0%, var(--verde-escuro) 100%);
     color: #fff;
     text-align: center;
     padding: 70px 0;
@@ -717,7 +716,7 @@ html {
 .chamada-final p {
     margin-top: 18px;
     font-weight: 300;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .chamada-final .bt {
@@ -757,7 +756,7 @@ html {
     gap: 20px;
     padding: 25px 30px;
     color: #fff;
-    background-color: var(--azul);
+    background-color: var(--verde);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -771,7 +770,7 @@ html {
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 .popup .fechar {
@@ -806,7 +805,7 @@ html {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: .12em;
-    color: var(--azul-escuro);
+    color: var(--verde-escuro);
 }
 
 .popup .opcao {
@@ -822,18 +821,18 @@ html {
 }
 
 .popup .opcao:hover {
-    border-color: var(--azul-claro);
+    border-color: var(--verde-claro);
 }
 
 .popup .opcao:has(input:checked) {
-    border-color: var(--azul);
+    border-color: var(--verde);
     background-color: #f7fbfd;
 }
 
 .popup .opcao input {
     width: 18px;
     height: 18px;
-    accent-color: var(--azul);
+    accent-color: var(--verde);
 }
 
 .popup .opcao .titulo {
@@ -843,7 +842,7 @@ html {
 .popup .opcao .valor {
     font-weight: 900;
     white-space: nowrap;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 .popup .entrada {
@@ -858,7 +857,7 @@ html {
 }
 
 .popup .entrada:focus {
-    border-color: var(--azul);
+    border-color: var(--verde);
 }
 
 .popup label.rotulo-campo {
@@ -896,7 +895,7 @@ html {
 .popup .total .numero {
     font-size: 26px;
     font-weight: 900;
-    color: var(--azul);
+    color: var(--verde);
 }
 
 /* Hero do NeuroVet: uma coluna enquanto a arte do evento não chega */
@@ -929,7 +928,7 @@ html {
     margin-top: 18px;
     font-size: 18px;
     font-style: italic;
-    color: var(--azul-claro);
+    color: var(--verde-claro);
 }
 
 /* O dia da programação leva o tema junto */
@@ -967,7 +966,7 @@ html {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 4px solid var(--azul-claro);
+    border: 4px solid var(--verde-claro);
 }
 
 .popup-cv .lista-cv {
@@ -992,7 +991,7 @@ html {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: var(--azul-medio);
+    background-color: var(--verde-medio);
 }
 
 /* Responsivo ---------------------------------------------------------------- */

@@ -33,7 +33,7 @@
                     <span class="rotulo-total">Total (<?= $lote ?>º lote)</span>
                     <div class="numero js-total"></div>
                 </div>
-                <button type="button" class="bt bt-azul js-enviar" disabled></button>
+                <button type="button" class="bt bt-solido js-enviar" disabled></button>
             </div>
         </div>
     </div>
