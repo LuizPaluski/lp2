@@ -64,7 +64,7 @@ $modalidades = [
     'simposio' => [
         'titulo'      => 'Somente simpósio',
         'nota'        => 'A programação científica dos dias 20 e 21, sem as estações práticas do domingo.',
-        'checkout_id' => ['geral' => ''],
+        'checkout_id' => ['geral' => '68634'],
         'precos'      => [
             'geral' => ['1' => 40000, '2' => 50000],
         ],
