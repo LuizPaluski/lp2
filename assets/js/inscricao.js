@@ -119,6 +119,14 @@
         if (e.key === 'Escape' && popup.classList.contains('aberto')) fechar();
     });
 
+    // quem volta do checkout pelo botão do navegador recebe a página do cache no estado
+    // em que saiu: popup aberto e botão preso em "Enviando...". Aqui ele volta ao normal.
+    window.addEventListener('pageshow', (e) => {
+        if (!e.persisted) return;
+        enviando = false;
+        fechar();
+    });
+
     if (cupom) {
         cupom.addEventListener('input', () => {
             avisoCupom.textContent = '';
